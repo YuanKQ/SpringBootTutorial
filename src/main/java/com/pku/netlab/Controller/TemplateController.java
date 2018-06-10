@@ -15,9 +15,9 @@ public class TemplateController {
         return "hello";
     }
 
-//    @RequestMapping("/jsp")
-//    public String returnJsp(){
-//        return "notFound";
-//    }
+    @RequestMapping("/html")
+    public String returnJsp(){
+        return "notFound";
+    }
 
 }
