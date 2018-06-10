@@ -1,4 +1,4 @@
-package com.pku.netlab.springbootrookie.Controller;
+package com.pku.netlab.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
