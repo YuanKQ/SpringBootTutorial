@@ -10,7 +10,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 
 @SpringBootApplication
-@ComponentScan("com.pku.netlab")
+@ComponentScan({"com.pku.netlab.Controller", "com.pku.netlab.Config"})
 public class SpringbootRookieApplication{
 
 

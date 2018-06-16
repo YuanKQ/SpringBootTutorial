@@ -1,13 +1,14 @@
+/**
+ * @Author: yuan
+ * @Date: 18-6-10 21:01
+ * @Description: 根据utl返回对应的freemarker模板
+ */
+
 package com.pku.netlab.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * @Auther: yuan
- * @Date: 18-6-10 21:01
- * @Description: 根据utl返回对应的freemarker模板
- */
 @Controller
 public class TemplateController {
 
