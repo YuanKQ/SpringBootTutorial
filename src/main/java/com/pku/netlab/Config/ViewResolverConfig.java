@@ -3,6 +3,7 @@
  * @Date: 18-6-10 15:54
  * @Description: 模板引擎配置类，使用ftl，html
  * FreeMarker配置参见：
+ *   ftl完全兼容html的语法
  *   Freemarker官方教程(https://freemarker.apache.org/docs)
  *   application.properties默认设置(https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
  *
@@ -23,7 +24,6 @@ package com.pku.netlab.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 

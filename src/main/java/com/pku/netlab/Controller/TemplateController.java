@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * @Auther: yuan
  * @Date: 18-6-10 21:01
- * @Description:
+ * @Description: 根据utl返回对应的freemarker模板
  */
 @Controller
 public class TemplateController {
+
     @RequestMapping("/ftl")
     public String retrunFtl(){
         return "hello";
@@ -17,6 +18,7 @@ public class TemplateController {
 
     @RequestMapping("/html")
     public String returnJsp(){
+        // 返回不了notFound.html, 而是notFound.ftl
         return "notFound";
     }
 
