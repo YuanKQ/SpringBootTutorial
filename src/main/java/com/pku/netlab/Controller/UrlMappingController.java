@@ -18,7 +18,7 @@
 package com.pku.netlab.Controller;
 
 import com.alibaba.fastjson.JSON;
-import com.pku.netlab.Dao.Person;
+import com.pku.netlab.Model.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 @RestController
@@ -112,6 +111,7 @@ public class UrlMappingController {
 //            return "UnsupportedEncodingException";
 //        }
 //        return "Get: " + object;
+        // 从request对象中获取请求json格式的参数: https://blog.csdn.net/qq_27292113/article/details/76837603
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream(), "UTF-8"));
             StringBuilder sb = new StringBuilder();

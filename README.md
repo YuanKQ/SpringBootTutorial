@@ -62,3 +62,16 @@ sample: http://www.baeldung.com/fastjson
 验证：
 - 本地 `JSON.toJSONString()`与`JSON.parseObject()`
 - client与server端：JSON序列化与反序列化
+
+## Spring Data
+### Redis
+### install redis
+ 倘若是Manjaro，直接在Terminal命令输入`yaourt -S redis`
+ 其他OS参见官网：http://www.baeldung.com/spring-data-redis-tutorial
+### Introduction to Spring Data Redis 
+> first run Reids by the command `redis-server /etc/redis.conf --port 7001`
+- using annotation
+  http://www.baeldung.com/spring-data-redis-tutorial
+  Redis2.0之后，一些配置需要更新： https://stackoverflow.com/questions/49021994/jedisconnectionfactory-sethostname-is-deprecated
+- using autoconfig(application.properties)
+  https://github.com/x113773/testall/issues/17

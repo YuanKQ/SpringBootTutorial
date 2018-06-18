@@ -1,4 +1,4 @@
-package com.pku.netlab.Dao;
+package com.pku.netlab.Model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class Person {
     protected int age;
-    public String fullName;
+    public String firstName;
     public String lastName;
 
     @JSONField(name = "DATE OF BRITH", format = "yyyy-mm-dd")  // format just works for Serialize
@@ -21,9 +21,9 @@ public class Person {
 
     }
 
-    public Person(int age, String fullName, String lastName, Date dateOfBirth) {
+    public Person(int age, String firstName, String lastName, Date dateOfBirth) {
         this.age = age;
-        this.fullName = fullName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
     }
@@ -44,7 +44,7 @@ public class Person {
     public String toString() {
         return "Person:"+
                 "\n\tage: " + age +
-                "\n\tfullName: " + fullName +
+                "\n\tfirstName: " + firstName +
                 "\n\tlastName: " + lastName +
                 "\n\tDATE OF BIRTH: " + dateOfBirth;
     }
