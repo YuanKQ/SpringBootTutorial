@@ -17,12 +17,19 @@
 
 package com.pku.netlab.Controller;
 
+import com.alibaba.fastjson.JSON;
+import com.pku.netlab.Dao.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/mapping")
@@ -78,31 +85,63 @@ public class UrlMappingController {
      */
     //multiple type： @PostMapping(value = "/consumes", consumes = {"application/json", "application/xml"})
     @PostMapping(value = "/consumes", consumes = "application/json")
-    public String getJsonObject(){
-        return "Get Content-type:appliaction/json";
+    public Person getJsonObject(HttpServletRequest request, HttpServletResponse response){
+//        return "getJsonObject";
+//        int contenLength = request.getContentLength();
+//        if (contenLength <= 0)
+//            return "Get null object.";
+//        byte buffer[] = new byte[contenLength];
+//        for (int i = 0; i < contenLength;) {
+//            int readLen = 0;
+//            try {
+//                readLen = request.getInputStream().read(buffer, i, contenLength-i);
+//            } catch (IOException e) {
+//                return "IOException";
+//            }
+//            if (readLen == -1)
+//                break;
+//        }
+//        String charEncoding = request.getCharacterEncoding();
+//        if (charEncoding == null)
+//            charEncoding = "UTF-8";
+//
+//        String object;
+//        try {
+//            object = new String(buffer, charEncoding);
+//        } catch (UnsupportedEncodingException e) {
+//            return "UnsupportedEncodingException";
+//        }
+//        return "Get: " + object;
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream(), "UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            String input;
+            while ((input = reader.readLine())!= null)
+                sb.append(input);
+            Person p = JSON.parseObject(sb.toString(), Person.class);
+            p.getOlder();
+            response.setContentType("application/json");
+            return p;
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     /*
      * produces: 指定什么媒体类型的响应是可接受的，即server端（生产者）根据client端的"Accept"字段产生指定媒体类型。
      * set header "Accept"
      * test out： 用Postman吧
-     * 此处发送json数据行为不够规范，仅仅是为了快速地产生一个json对象。
      */
     @GetMapping(value = "/produces", produces = "application/json")
-    public void sendJsonObject(HttpServletResponse response) {
-        String jsonData = "{\"username\":\"zhang\", \"password\":\"123\"}";
-        // 这个不是正确的json string
-        // String jsonData = "{'username':'zhang', 'password':'123'}";
+    public Person sendJsonObject(HttpServletResponse response) {
+        Person p = new Person(12, "Peter", "Smith", new Date());
 
         // 告知客户端以正确的格式解码
         response.setContentType("application/json;charset=utf-8");
-        try {
-            response.getWriter().write(jsonData);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
+        return p;
     }
 
 
@@ -188,9 +227,9 @@ public class UrlMappingController {
      * test out:  curl http://localhost:8080/mapping
      *            curl http://localhost:8080/mapping/kk/ll/balabala
      */
-    @RequestMapping(value = "**", method = {RequestMethod.GET, RequestMethod.POST}) // value="*" 就不能匹配 http://localhost:8080/mapping
-    public String fallback() {
-        return "Fall back for UrlMappingController.";
-    }
+//    @RequestMapping(value = "**", method = {RequestMethod.GET, RequestMethod.POST}) // value="*" 就不能匹配 http://localhost:8080/mapping
+//    public String fallback() {
+//        return "Fall back for UrlMappingController.";
+//    }
 }
 

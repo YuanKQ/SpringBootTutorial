@@ -42,4 +42,23 @@
     http 协议中的Header部分的规定 --》 生产者、消费者模式 --》(Server) consumes、produces
 
     consumes,produces参数时，方法级别的映射将覆盖类级别的映射，这点要与value参数的使用区别开来。
- 
+    
+### fastJson配置
+> 使用 Fastjson 提供的`FastJsonHttpMessageConverter` 来替换 Spring 默认的 `HttpMessageConverter`以提高`@RestController`, `@ResponseBody`, `@RequestBody` 注解的 JSON序列化速度
+
+官方doc： http://static.javadoc.io/com.alibaba/fastjson/1.2.33/index.html
+@JsonField解析: https://github.com/alibaba/fastjson/wiki/JSONField
+sample: http://www.baeldung.com/fastjson
+配置: https://www.jianshu.com/p/aabd308ac963
+
+
+序列化 JSON.toJSONString()：Object --> String
+- private/protected字段没有加getter方法的话，该字段不会被序列化（该字段不会输出到String中）
+
+反序列化 JSON.parseObject()：String --> Object
+- private/protected字段没有setter方法的话，该字段不会被反序列化(该字段的值保留为系统默认值）
+- define a no-args or default constructor
+
+验证：
+- 本地 `JSON.toJSONString()`与`JSON.parseObject()`
+- client与server端：JSON序列化与反序列化
