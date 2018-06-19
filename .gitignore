@@ -27,5 +27,10 @@
 /.idea/
 /mvnw.cmd
 /.mvn/
+
 /mvnw
 /src/test/
+
+.README.md.kate-swp
+.directory
+src/main/webapp/

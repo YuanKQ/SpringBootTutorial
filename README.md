@@ -8,6 +8,9 @@
 @Controller，@RestController
 
 @RequestMapping
+
+
+
 ## Spring Web
 ### 配置模板引擎
 > ViewResolverConfig
@@ -74,4 +77,15 @@ sample: http://www.baeldung.com/fastjson
   http://www.baeldung.com/spring-data-redis-tutorial
   Redis2.0之后，一些配置需要更新： https://stackoverflow.com/questions/49021994/jedisconnectionfactory-sethostname-is-deprecated
 - using autoconfig(application.properties)
+  StringRedisTemplate可以直接使用@Autowired
   https://github.com/x113773/testall/issues/17
+> 以上配置只能二选一，虽然方法2减少配置工作量，但是作用有限，当你需要使用RedisTemplate，只能使用方法1.
+### 使用RedisTemplate实现CRUD操作
+先看这个tutorial： https://www.cnblogs.com/EasonJim/p/7803067.html，对RedisTemplate常用操作有个基本了解
+
+在 Spring Data Redis 中集成 Fastjson： https://github.com/alibaba/fastjson/wiki/%E5%9C%A8-Spring-%E4%B8%AD%E9%9B%86%E6%88%90-Fastjson
+
+所有步骤：http://javasampleapproach.com/spring-framework/spring-data/spring-data-redis-example-spring-boot-redis-example#2Configure_Spring_Data_Redis
+
+> 不要忘了在相应的repo的类中添加`@Repository`
+

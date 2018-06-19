@@ -1,5 +1,6 @@
 package com.pku.netlab.Config;
 
+import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,6 +39,8 @@ public class RedisConfig {
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
+        // 设置默认的Serialize，包含 keySerializer & valueSerializer
+//        template.setDefaultSerializer(new GenericFastJsonRedisSerializer());
         template.setConnectionFactory(jedisConnectionFactory());
         return template;
     }
