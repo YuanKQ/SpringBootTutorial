@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
-@ComponentScan({"com.pku.netlab.Controller", "com.pku.netlab.Config", "com.pku.netlab.Repo"})
+@ComponentScan("com.pku.netlab")
 public class SpringbootRookieApplication{
     public static void main(String[] args) {
         SpringApplication.run(SpringbootRookieApplication.class, args);

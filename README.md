@@ -1,9 +1,16 @@
-# SpringBoot 学习计划
+# SpringBoot 2.0 学习计划
+> 在查找配置文件相关文档时，务必要保证SpringBoot的版本号要匹配
+```
+Spring Boot 2.0.3
+fastJson 1.2.17
+redis 4.0   
+```
+
 ## Spring Core
 ### 理解Bean的作用域，生命周期，体会Bean的注入
 > 详见《Spring实战》第三版：第1章~第3章
 ### 常见注解
-@Configure，@Bean
+@ppt，@Bean
 
 @Controller，@RestController
 
@@ -88,4 +95,15 @@ sample: http://www.baeldung.com/fastjson
 所有步骤：http://javasampleapproach.com/spring-framework/spring-data/spring-data-redis-example-spring-boot-redis-example#2Configure_Spring_Data_Redis
 
 > 不要忘了在相应的repo的类中添加`@Repository`
+
+### Redis缓存配置
+> RedisCacheManager在SpringBoot2.0中有较大改动。
+
+最简单的配置，可用于测试配置是否正确：https://blog.csdn.net/fanpeizhong/article/details/79998164
+注解失效时间+主动刷新缓存：https://www.cnblogs.com/ASPNET2008/p/6511500.html， https://www.cnblogs.com/ASPNET2008/p/8733087.html  
+ 
+@Cacheable，@CachePut， @CacheEvict， @CacheConfig介绍：https://blog.csdn.net/poorCoder_/article/details/55258253
+> cacheNames可以一样，但是key不能一样 ==> 待证实
+
+@Cacheable，@CachePut， @CacheEvict， @CacheConfig实战：https://my.oschina.net/silenceyawen/blog/1555996
 

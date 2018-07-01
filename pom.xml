@@ -39,27 +39,38 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastJson</artifactId>
-            <version>1.2.17</version>
-        </dependency>
+        <!--Spring Boot简化了Spring Data Redis的引入，只要引入spring-boot-starter-data-redis之后会自动下载相应的Spring Data Redis和Jedis客户端，可以减少版本这块的冲突，当然，如果要引入别的版本也是可以的。版本控制全部交由Parent引入的Spring Boot节点进行管理！，建议不要引入最新版本的spring-boot-starter-data-redis，避免造成其它冲突。-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
             <version>2.0.8.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
             <type>jar</type>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.46</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <version>2.0.1.RELEASE</version>
         </dependency>
     </dependencies>
 
